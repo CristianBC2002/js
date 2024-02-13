@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo IVA</title>
+    <style>
+        #display {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculo del IVA de un producto</h2>
+    <p>Precio sin IVA <input value="100" type="number" id="precio-sin-iva"></p>
+    <p>Tipo <input type="number" max="3" min="1" value="3" id="tipo"></p>
+    <button onclick="calcularPrecioConIvaFormulario()">Calcular Precio con IVA</button>
+    <p id="display"></p>
+
+    <script>
+        /* EJERCICIO CALCULAR IVA:
+        TIPO1: 5%;
+        TIPO2: 10%
+        TIPO3: 21%
+        */
+
+        function calcularPrecioConIvaFormulario() {
+            let precioSinIva = document.getElementById("precio-sin-iva");
+            let precioSinIvaValor = parseFloat(precioSinIva.value);
+            let tipoValor = parseFloat(document.getElementById("tipo").value);
+            let precioIva = calcularPrecioConIva(precioSinIvaValor, tipoValor);
+            let display = document.getElementById("display");
+
+            display.textContent = "El precio con IVA es " + precioIva;
+        }
+
+        function calcularPrecioConIva(precioSinIva, tipo) {
+            if (tipo == 1) {
+                /*5% IVA*/
+                return precioSinIva * 1.05;
+            } else if (tipo == 2) {
+                /*10% IVA*/
+                return precioSinIva * 1.10;
+            } else if (tipo == 3) {
+                /*21% IVA*/
+                return precioSinIva * 1.21;
+            } else {
+                return "un tipo de IVA no es válido";
+            }
+        }
+    </script>
+</body>
+</html>
