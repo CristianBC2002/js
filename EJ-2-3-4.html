@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="diceNota()">Notas</button>
+    <button onclick="NumMenorDiez()">Comparador Números</button>
+    <button onclick="MediaNumeros()">Media de 3 Números</button>
+    <script>
+/*Confeccionar un programa que pida una nota (número). Muestra y la calificación según la nota:
+
+0-3: Muy deficiente
+3-5: Insuficiente
+5-6: Suficiente
+6-7: Bien
+7-9: Notable
+9-10: Sobresaliente*/
+
+function diceNota(){
+
+    let nota;
+nota= prompt ("Dime un nº: ")
+
+if (nota<=3){
+alert ("Muy deficiente");
+}
+
+else if (nota<5){
+alert ("Insuficiente");
+}
+
+else if (nota<=5){
+alert ("Suficiente");
+}
+
+else if (nota<=7){
+alert ("Bien");
+}
+
+else if (nota<=8){
+alert ("Notable");
+}
+
+else if (nota>=9){
+alert ("Sobresaliente");
+}
+}
+
+/*Se ingresan por teclado tres números, si al menos uno de los valores ingresados es menores a 10,
+imprimir en la página la leyenda Alguno de los números es menor a diez.*/
+ 
+function NumMenorDiez(){
+let n1, n2, n3;
+n1= prompt("Dime el 1º nº: ");
+n2= prompt("Dime el 2º nº: ");
+n3= prompt("Dime el 3º nº: ");
+
+if (n1<10 || n2<10 || n3<10) {
+alert ("Alguno de los números es menor a diez");
+}
+}
+
+/*Se ingresan tres notas de un alumno, si el promedio es mayor o igual a 5 mostrar el mensaje
+"Promocionado". En caso contrario "No promociona". Tener en cuenta que para obtener el
+promedio debemos operar suma=nota1+nota2+nota3; y luego hacer promedio=suma/3;*/
+
+function MediaNumeros(){
+let promedio, n1, n2, n3;
+n1=prompt("Dime la 1º nota");
+n2=prompt("Dime la 2º nota");
+n3=prompt("Dime la 3º nota");
+promedio= (Number (n1) + Number (n2) + Number (n3))/3;
+
+if (promedio>=5){
+    alert("Promocionado");
+}
+else {
+    alert("No Promociona");
+}
+}
+
+    </script> 
+</body>
+</html>
