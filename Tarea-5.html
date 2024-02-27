@@ -4,36 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<style>
+   #display{
+            width: 40%;
+            border: 3px solid blue;
+            border-radius: 10px;
+            height: 100px;
+            margin: auto;
+            padding: 10px;
+            overflow: auto;
+            background-color: yellow;
+        }
+</style>
+
+
 </head>
 <body>
-
-
     <button onclick="tablasMulti()">Tablas de Multiplicar</button>
+    <h1 id="titulo"></h1>
+    <div id="display"></div>
     <input type="number" id="tablas">
     <script>
-    /*
-   - Una página en html que te de un numero con un input tipo number.
-   - Después hacer un button que te haga la tabla de multiplicar de ese numero
-    */
-
-
-
-
-    //DEBES TERMINARLO
+   /*
+   Haz una página con un input de tipo number y un botón que ponga "Tabla de multiplicar".
+    Si por ejemplo el usuario escribe un 8, el pulsar el botón,
+    se escribe la tabla de multiplicar del 8 en un div que llamamos "display"
+   */
 
 function tablasMulti(){
-    let n1 = prompt("Dime la tabla que quieres multiplicar: ");
+    let n = document.getElementById("tablas").value;
 
+    document.write("La tabla del " +n+  " es:" + "<br><br>");
     let multi=0;
     for (let i=1; i<=10; i++){
-    multi=n1*i;
-    alert(multi);
+    multi=n*i;
+    document.write("<li>" +n+ " X " +i+ " = " +multi+ "</li>");
     }
 }
-   
-
-
-
 
 
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #display{
+            border: 2px solid lightseagreen;
+            border-radius: 10px;
+            width: 100px;
+            height: 200px; 
+            padding: 20px;           
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Tablas de multiplicar</h1>
+    Número: <input id="numero" type="number" min="1" max="10">
+    <button onclick="tablaMultiplicar()">Tablas de multiplicar</button>
+    <h2 id="resultado">Resultado:</h2>
+    <div id="display"></div>
+
+    <script>
+/*
+    Haz una página con un input de tipo number y un botón que ponga "Tabla de multiplicar".
+    Si por ejemplo el usuario escribe un 8, el pulsar el botón,
+    se escribe la tabla de multiplicar del 8 en un div que llamamos "display"
+*/
+        function tablaMultiplicar(){
+            let numero = document.getElementById("numero").value;
+            let display = document.getElementById("display");
+            let cadena;
+            for (let i=1; i<=10; i++){
+                cadena = numero + " x " + i + " = " + numero*i + "<br>";
+                display.innerHTML += cadena;
+            }
+            document.getElementById("resultado").style.color = "red";
+            display.style.backgroundColor = "yellow";
+        }                
+                
+    </script>
+
+</body>
+</html>
