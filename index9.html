@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos de Fútbol</title>
+
+    <style>
+        #imagen {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Equipos de Fútbol</h1>
+    <label for="equipo">Equipo</label>
+    <select onchange="cambiaEquipo()" id="equipo">
+        <option value="ninguno">Elija equipo...</option>
+        <option value="rm">Real Madrid</option>
+        <option value="bar">FC Barcelona</option>
+    </select>
+    <img src="" id="imagen" width="200px" height="250px">
+    <h1 id="titulo"></h1>
+    <div id="display"></div>
+
+    <script>
+        function cambiaEquipo() {
+            let equipoObj = document.getElementById("equipo");
+            let equipoValor = equipoObj.value;
+            cambiaImagen(equipoValor);
+        }
+
+        function cambiaImagen(equipo) {
+            let imagen = document.getElementById("imagen");
+            let titulo = document.getElementById("titulo");
+
+            if (equipo == "ninguno") {
+                imagen.src = "";
+                titulo.innerHTML = "";
+                imagen.style.display = "none";
+                cambiaAtributosEquipo("ninguno");
+
+            }
+
+            if (equipo == "rm") {
+                imagen.src = "realmadrid.png";
+                titulo.innerHTML = "Alineación del Real Madrid";
+                imagen.style.display = "block";
+                cambiaAtributosEquipo("rm");
+            }
+
+            if (equipo == "bar") {
+                imagen.src = "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png";
+                titulo.innerHTML = "Alineación del Barcelona";
+                imagen.style.display = "block";
+                cambiaAtributosEquipo("bar");
+            }
+        }
+
+        function cambiaAtributosEquipo(equipo) {
+            let alineacion = [];
+
+            if (equipo == "ninguno"){
+            }
+
+            if (equipo == "rm") {
+                alineacion = ["Bale", "Ronaldo", "Cristiano", "Butragueño", "Zidane"];
+            }
+
+            if (equipo == "bar") {
+                alineacion = ["Ter", "Andrés", "Gavi", "Pedro", "Messi", "Iniesta"];
+            }
+
+            imprimeAlineacion(alineacion);
+        }
+
+        function imprimeAlineacion(alineacion) {
+            let display = document.getElementById("display");
+            display.innerHTML = "";
+
+            for (let i = 0; i < alineacion.length; i++) {
+                display.innerHTML += alineacion[i] + "<br>";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #display{
+            width: 40%;
+            border: 3px solid blue;
+            border-radius: 10px;
+            height: 100px;
+            margin: auto;
+            padding: 10x;
+            overflow: auto;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 id="titulo">Manejo de Arrays</h1>
+    <button onclick="diceAlineacion()">alineación</button>
+    <button onclick="imprimeAlineacion()">Imprime</button>
+    <button onclick="cambiaImagen()">Cambia Imagen</button>
+
+    <img src="" id="imagen" width="100" height="100">
+    <div id="display"></div>
+
+
+    <script>
+/*Arrays con javascript*/
+
+//Esto es una variable global (Fuera de una funcion), y son uy desaconsejables
+let alineacion= ["Bale", "Butragueño", "Cristiano", "Zidane", "Figo"];
+
+
+function diceAlineacion(){
+let alineacion= ["Bale", "Butragueño", "Cristiano", "Zidane", "Figo"];
+
+//Añadir valores a un array de esta mnera es posible pero MUY chapucero y poco recomendable
+//alineacion[5]="Santillana";
+
+//Para añadir el elemento a la última posición del array y que no genere errores
+alineacion.push("Santillana");
+alineacion.push("Juanito");
+//Añadir elemento por la izquierda (Desde el principio)
+alineacion.unshift("Di Estefano");
+
+
+let posicion = prompt("Dime posición: ");
+if (posicion>=alineacion.length){
+alert("No hay tantos jugadores");
+}
+else{
+alert("En la posición " +posicion+ " juega " +alineacion [posicion]);
+}
+} //Fin función dice alineación
+
+
+
+function imprimeAlineacion() {
+    let display = document.getElementById("display");
+    display.innerHTML = "<ol>"
+
+    for(let i=0;i<alineacion.length;i++){
+        display.innerHTML = display.innerHTML + "<li>" +alineacion[i]+ "</li>";
+    }
+
+    display.innerHTML = display.innerHTML + "</ol>";
+    display.style.backgroundColor = "yellow";
+    display.style.width = "30%";
+    document.getElementById("titulo").style.color = "red";
+    document.getElementById("titulo").style.fontSize = "4em";
+
+}
+
+function cambiaImagen(){
+let imagen = document.getElementById("imagen");
+imagen.src = "dl2-foto.jpg";
+}
+
+
+//document.write("</ol>");
+    </script>
+
+</body>
+</html>
